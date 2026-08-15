@@ -66,17 +66,15 @@ export function WhySaid() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-brand-600">
-            L’organisateur
+            L’équipe
           </p>
           <h2 className="font-serif text-4xl font-semibold text-kasbah-900 md:text-5xl">
-            Pourquoi Saïd Mountain Bike
+            L’expertise du terrain depuis 2000
           </h2>
           <p className="mt-5 text-base leading-relaxed text-kasbah-700">
-            25 ans sur ces pistes. Installé à Ouarzazate depuis 2000, Saïd
-            connaît chaque col, chaque piste oubliée du Haut-Atlas au Djebel
-            Saghro. Ici, pas de guide générique : un chauffeur-guide originaire
-            des régions traversées, une organisation rodée depuis un quart de
-            siècle, et une seule règle — le voyageur est sacré.
+            Basés à Ouarzazate, nous traçons et accompagnons nos raids sans
+            intermédiaire. Une logistique maîtrisée, un encadrement par des
+            guides natifs du Sud et un respect profond du voyageur.
           </p>
         </div>
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
