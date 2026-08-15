@@ -1,0 +1,240 @@
+@import 'tailwindcss';
+
+@theme {
+  /* ===== Palette nomade & saharienne — CLAIRE ET LUMINEUSE ===== */
+
+  /* Sable / crème — fonds dominants */
+  --color-sable-50: #fdfbf6;
+  --color-sable-100: #faf5ea;
+  --color-sable-200: #f3ebd8;
+  --color-sable-300: #e8d9bc;
+  --color-sable-400: #dcc3a4;
+
+  /* Ocre doux */
+  --color-ocre-100: #f7ecd5;
+  --color-ocre-200: #efd9b0;
+  --color-ocre-300: #e3c082;
+  --color-ocre-400: #d3a455;
+  --color-ocre-500: #c08a3a;
+  --color-ocre-600: #a4742f;
+  --color-ocre-700: #83592a;
+
+  /* Terracotta */
+  --color-terracotta-200: #f4cdb6;
+  --color-terracotta-300: #e9a888;
+  --color-terracotta-400: #db8460;
+  --color-terracotta-500: #c8744f;
+  --color-terracotta-600: #b15a36;
+  --color-terracotta-700: #8f4628;
+
+  /* Orange signature — dégradés chauds */
+  --color-brand-50: #fff4ea;
+  --color-brand-100: #ffe6d2;
+  --color-brand-200: #ffcaa5;
+  --color-brand-300: #ffac74;
+  --color-brand-400: #ff8c44;
+  --color-brand-500: #f5731f;
+  --color-brand-600: #de5a12;
+  --color-brand-700: #b9470f;
+
+  /* Brun kasbah — uniquement pour texte profond, jamais fond sombre */
+  --color-kasbah-100: #e8e0d4;
+  --color-kasbah-200: #d4c8b8;
+  --color-kasbah-300: #b8a896;
+  --color-kasbah-400: #9c8870;
+  --color-kasbah-500: #7d664f;
+  --color-kasbah-600: #64523f;
+  --color-kasbah-700: #4d3e30;
+  --color-kasbah-800: #3a2e24;
+  --color-kasbah-900: #2a2118;
+
+  /* Indigo touareg — accent ponctuel très discret uniquement */
+  --color-indigo-400: #5d72a0;
+  --color-indigo-500: #3f5485;
+  --color-indigo-600: #2f4068;
+
+  /* Système */
+  --color-success-500: #5b8a5b;
+  --color-warning-500: #c89531;
+  --color-error-500: #c0483a;
+
+  --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+
+  body {
+    background-color: var(--color-sable-50);
+    color: var(--color-kasbah-800);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--color-brand-500);
+    color: #fff;
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+
+  /* Dégradé orange signature — du orange vif vers pêche/sable clair */
+  .gradient-orange {
+    background: linear-gradient(
+      135deg,
+      var(--color-brand-400) 0%,
+      var(--color-brand-300) 45%,
+      var(--color-brand-100) 100%
+    );
+  }
+  .gradient-orange-soft {
+    background: linear-gradient(
+      135deg,
+      var(--color-brand-300) 0%,
+      var(--color-brand-100) 55%,
+      var(--color-sable-100) 100%
+    );
+  }
+  .gradient-orange-warm {
+    background: linear-gradient(
+      135deg,
+      var(--color-terracotta-400) 0%,
+      var(--color-brand-400) 50%,
+      var(--color-brand-200) 100%
+    );
+  }
+  .gradient-dune {
+    background: linear-gradient(
+      180deg,
+      var(--color-sable-50) 0%,
+      var(--color-ocre-100) 50%,
+      var(--color-brand-100) 100%
+    );
+  }
+  .gradient-dune-rise {
+    background: linear-gradient(
+      180deg,
+      var(--color-brand-100) 0%,
+      var(--color-sable-100) 50%,
+      var(--color-sable-50) 100%
+    );
+  }
+
+  /* Dégradé hero multi-paliers — orange chaud → terracotta → sable clair,
+     transition fondue sans ligne de coupure nette. */
+  .gradient-hero {
+    background: linear-gradient(
+      145deg,
+      var(--color-brand-400) 0%,
+      var(--color-brand-300) 22%,
+      var(--color-terracotta-300) 42%,
+      var(--color-terracotta-200) 62%,
+      var(--color-brand-100) 80%,
+      var(--color-sable-100) 100%
+    );
+  }
+
+  /* Vignette chaude sur les visuels */
+  .warm-vignette {
+    position: relative;
+  }
+  .warm-vignette::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse at center,
+      transparent 50%,
+      rgba(185, 71, 15, 0.18) 100%
+    );
+  }
+
+  /* Filigrane berbère discret */
+  .berber-filigree {
+    background-image: radial-gradient(
+        circle at 20% 30%,
+        rgba(245, 115, 31, 0.06) 0%,
+        transparent 40%
+      ),
+      radial-gradient(
+        circle at 80% 70%,
+        rgba(63, 84, 133, 0.05) 0%,
+        transparent 45%
+      );
+  }
+
+  .text-shadow-warm {
+    text-shadow: 0 1px 12px rgba(185, 71, 15, 0.25);
+  }
+
+  /* Animation d'entrée */
+  @keyframes fade-rise {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-fade-rise {
+    animation: fade-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes slow-pan {
+    0% {
+      transform: scale(1.08) translateX(-1.5%);
+    }
+    100% {
+      transform: scale(1.12) translateX(1.5%);
+    }
+  }
+  .animate-slow-pan {
+    animation: slow-pan 24s ease-in-out infinite alternate;
+  }
+
+  @keyframes float-soft {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+  .animate-float-soft {
+    animation: float-soft 5s ease-in-out infinite;
+  }
+}
+
+/* Polices */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/cormorantgaramond/v17/co3bmX5slCNuHLi8bLeY9MK7whWMhyjornGLPg.woff2')
+    format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCpXSojA2.woff2')
+    format('woff2');
+}
